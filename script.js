@@ -29,7 +29,19 @@ const fetchData = async () => {
       const championName = champion.id;
       const type = champion.tags;
 
-      console.log(imgUrl, championName, type);
+      const figure = document.createElement('figure');
+      const figcaption = document.createElement('figcaption');
+      const img = document.createElement('img');
+      img.src = imgUrl;
+      img.alt = championName;
+      figcaption.textContent = championName;
+
+      
+      figure.appendChild(img);
+      figure.appendChild(figcaption);
+      container.appendChild(figure);
+
+      
     });
   } catch (error) {
     console.error("Error fetching champion data:", error);
