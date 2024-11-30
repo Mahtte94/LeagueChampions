@@ -15,7 +15,7 @@ const fetchData = async () => {
 
 const createChampionElement = (champion) => {
   const imgUrl = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${champion.image.full}`;
-  const championName = champion.id;
+  const championName = champion.name;
   const type = champion.tags;
 
   const figure = document.createElement("figure");
