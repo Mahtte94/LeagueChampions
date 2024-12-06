@@ -7,15 +7,21 @@
     <title>League of Legends Champions</title>
   </head>
   <body>
-    <h1>League of Legends Champions</h1>
+    <header>
+      <img src="/images/lol-logo-rendered-hi-res.png" alt="League of Legends" />
+    </header>
 
     <section id="champion-container" class="champion-container"></section>
-    <button id="random-champion-btn">Generate</button>
-    <label for="class-select">Choose a class</label>
 
-    <select name="classes" id="class-select">
-      <option value="">--Classes--</option>
-    </select>
+    <section class="btn-container">
+      <button id="random-champion-btn" class="random-champion-btn">
+        Generate
+      </button>
+
+      <select name="classes" id="class-select">
+        <option value="">All Classes</option>
+      </select>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>

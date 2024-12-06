@@ -37,7 +37,8 @@ const displayRandomChampion = () => {
   container.innerHTML = "";
 
   const championKeys = Object.keys(championsData.data);
-  const randomKey = championKeys[Math.floor(Math.random() * championKeys.length)];
+  const randomKey =
+    championKeys[Math.floor(Math.random() * championKeys.length)];
   const randomChampion = championsData.data[randomKey];
 
   const figure = createChampionElement(randomChampion);
@@ -75,7 +76,8 @@ const displayAllClasses = () => {
     });
 
     if (matchingChampions.length > 0) {
-      const randomKey = matchingChampions[Math.floor(Math.random() * matchingChampions.length)];
+      const randomKey =
+        matchingChampions[Math.floor(Math.random() * matchingChampions.length)];
       const randomChampion = championsData.data[randomKey];
       const figure = createChampionElement(randomChampion);
       container.appendChild(figure);
