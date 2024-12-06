@@ -52,44 +52,13 @@ header img {
   margin: 0 auto;
 }
 
+.btn-container {
+  margin: 0 auto;
+}
+
 .random-champion-btn:hover {
   background-color: var(--buttonHoverColor);
+  cursor: pointer;
 }
 
-select {
-  font-size: 1.125rem;
-  font-family: Spiegel, sans-serif;
-  text-transform: uppercase;
-  color: black;
-  background-color: var(--buttonColor);
-  width: 200px;
-  height: 50px;
-  outline: rgb(255, 255, 255) solid 1px;
-  outline-offset: 3px;
-  font-weight: 400;
-  transition: color 0.25s ease-in-out, background-color 0.3s ease-in-out;
-  border: 0;
-  margin: 0 auto;
-  text-align: center;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
 
-select:hover {
-  background-color: var(--buttonHoverColor);
-}
-
-select option {
-  font-size: 1.125rem;
-  font-family: Spiegel, sans-serif;
-  text-transform: uppercase;
-  color: black;
-  background-color: var(--buttonColor);
-  width: 200px;
-  height: 50px;
-  outline: rgb(255, 255, 255) solid 1px;
-  outline-offset: 3px;
-  font-weight: 400;
-  transition: color 0.25s ease-in-out, background-color 0.3s ease-in-out;
-}
