@@ -1,5 +1,3 @@
-let championsData = [];
-
 const fetchData = async () => {
   try {
     const res = await fetch(
@@ -44,25 +42,31 @@ const displayRandomChampion = () => {
   container.appendChild(champion);
 };
 
+
+
 const createClassesElement = (tags) => {
-  const classElement = document.createElement("div");
+  const classContainer = document.querySelector("div");
+  classContainer.id = "class-container";
+  
+  tags.forEach(tag => {
+    const classElement = document.createElement("div");
+    classElement.textContent = tag;
+    classElement.classList.add("class-tag");
+    classContainer.appendChild(classElement);
+});
 
-  classElement.textContent = tags;
 
-  return classElement;
 };
 
 const displayClasses = () => {
-  const classContainer = document.getElementById("class-container");
 
-  const uniqueClasses = new Set();
+  let uniqueClasses = new Set();
   Object.values(championsData.data).forEach((champion) => {
-    champion.tags.forEach((tag) => uniqueClasses.add(tag));
+    champion.tags.forEach((tag) => uniqueClasses.add(tag))
   });
-
-  const classes = createClassesElement(Array.from(uniqueClasses));
-  classContainer.appendChild(classes);
-  console.log(classContainer);
+  
+  createClassesElement(Array.from(uniqueClasses));
+ 
 };
 
 const randomButton = document.getElementById("random-champion-btn");
