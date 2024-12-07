@@ -26,7 +26,7 @@ body {
 
 header {
   width: 100%;
-  height: 300px;
+  height: 250px;
   margin: 0 auto;
 }
 
@@ -34,31 +34,77 @@ header img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  min-height: 300px;
 }
 
 .random-champion-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.125rem;
   font-family: Spiegel, sans-serif;
   text-transform: uppercase;
   color: black;
   background-color: var(--buttonColor);
-  width: 200px;
-  height: 50px;
+  width: 100%;
+  max-width: 200px;
+  height: 100%;
+  max-height: 50px;
   outline: rgb(255, 255, 255) solid 1px;
   outline-offset: 3px;
   font-weight: 400;
-  transition: color 0.25s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.25s ease-in-out, background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
   border: 0;
-  margin: 0 auto;
+  margin: 40px auto;
 }
 
-.btn-container {
-  margin: 0 auto;
+.random-champion-btn:active {
+  transform: scale(0.90);
 }
 
 .random-champion-btn:hover {
   background-color: var(--buttonHoverColor);
   cursor: pointer;
 }
+
+.champion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+ 
+}
+
+figure {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  animation-name: animate;
+  animation-duration: 1s;
+}
+
+figure img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+figcaption {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 
 
