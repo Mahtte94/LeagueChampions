@@ -6,6 +6,7 @@ const fetchData = async () => {
       "https://ddragon.leagueoflegends.com/cdn/14.3.1/data/en_US/champion.json"
     );
     championsData = await res.json();
+    displayClasses();
   } catch (error) {
     console.error("Error fetching champion data:", error);
   }
@@ -14,7 +15,7 @@ const fetchData = async () => {
 const createChampionElement = (champion) => {
   const imgUrl = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${champion.image.full}`;
   const championName = champion.name;
-  const type = champion.tags;
+  const classes = champion.tags;
 
   const figure = document.createElement("figure");
   const figcaption = document.createElement("figcaption");
@@ -22,7 +23,7 @@ const createChampionElement = (champion) => {
 
   img.src = imgUrl;
   img.alt = championName;
-  figcaption.textContent = championName + " " + "(" + type + ")";
+  figcaption.textContent = championName + " " + "(" + classes + ")";
 
   figure.appendChild(img);
   figure.appendChild(figcaption);
@@ -39,11 +40,34 @@ const displayRandomChampion = () => {
     championKeys[Math.floor(Math.random() * championKeys.length)];
   const randomChampion = championsData.data[randomKey];
 
-  const figure = createChampionElement(randomChampion);
-  container.appendChild(figure);
-
+  const champion = createChampionElement(randomChampion);
+  container.appendChild(champion);
   
 };
+
+
+const createClassesElement = (tags) => {
+  const classElement = document.createElement("div");
+
+  classElement.textContent = tags;
+
+  return classElement;
+}
+
+const displayClasses = () => {
+  const classContainer = document.getElementById("class-container");
+
+  const uniqueClasses = new Set();
+  Object.values(championsData.data).forEach(champion => {
+    champion.tags.forEach(tag => uniqueClasses.add(tag));
+    
+  });
+  
+    const classes = createClassesElement(Array.from(uniqueClasses));
+    classContainer.appendChild(classes);
+  console.log(classContainer);
+  };
+
 
 const randomButton = document.getElementById('random-champion-btn');
 randomButton.addEventListener("click", displayRandomChampion);
