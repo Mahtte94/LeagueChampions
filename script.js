@@ -42,9 +42,7 @@ const displayRandomChampion = () => {
 
   const champion = createChampionElement(randomChampion);
   container.appendChild(champion);
-  
 };
-
 
 const createClassesElement = (tags) => {
   const classElement = document.createElement("div");
@@ -52,24 +50,22 @@ const createClassesElement = (tags) => {
   classElement.textContent = tags;
 
   return classElement;
-}
+};
 
 const displayClasses = () => {
   const classContainer = document.getElementById("class-container");
 
   const uniqueClasses = new Set();
-  Object.values(championsData.data).forEach(champion => {
-    champion.tags.forEach(tag => uniqueClasses.add(tag));
-    
+  Object.values(championsData.data).forEach((champion) => {
+    champion.tags.forEach((tag) => uniqueClasses.add(tag));
   });
-  
-    const classes = createClassesElement(Array.from(uniqueClasses));
-    classContainer.appendChild(classes);
+
+  const classes = createClassesElement(Array.from(uniqueClasses));
+  classContainer.appendChild(classes);
   console.log(classContainer);
-  };
+};
 
-
-const randomButton = document.getElementById('random-champion-btn');
+const randomButton = document.getElementById("random-champion-btn");
 randomButton.addEventListener("click", displayRandomChampion);
 
 fetchData();
