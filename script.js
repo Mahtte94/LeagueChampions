@@ -43,24 +43,11 @@ const displayRandomChampion = () => {
   container.appendChild(champion);
 };
 
-const displayRandomChampionByClass = () => {
-  const container = document.getElementById("champion-container");
-  container.innerHTML = "";
 
-  const checkedInputs = document.querySelectorAll('input[type="checkbox"]:checked');
-
-  const championKeys = Object.keys(championsData.data);
-  const randomKey =
-    championKeys[Math.floor(Math.random() * championKeys.length)];
-  const randomChampion = championsData.data[randomKey];
-
-  const champion = createChampionElement(randomChampion);
-  container.appendChild(champion);
-};
 
 const displayAllClasses = () => {
   const classContainer = document.querySelector(".class-container");
-
+  const checkedInputs = document.querySelectorAll('input[type="checkbox"]:checked');
   const champs = Object.values(championsData.data);
 
   const uniqueTags = new Set();
@@ -80,13 +67,13 @@ const displayAllClasses = () => {
     classes.type = "checkbox";
     classes.name = array;
     classes.id = array;
-console.log(array)
+
     classContainer.appendChild(classes);
     classContainer.appendChild(label);
   });
 };
 
 const randomButton = document.getElementById("random-champion-btn");
-randomButton.addEventListener("click", displayRandomChampionByClass);
+randomButton.addEventListener("click", displayRandomChampion);
 
 fetchData();
