@@ -78,6 +78,7 @@ header img {
 
 figure {
   width: 100%;
+  max-width: 200px;
   height: 200px;
   margin: 0 auto;
   animation-name: animate;
@@ -88,12 +89,16 @@ figure img{
   width: 100%;
   height: 100%;
   object-fit: contain;
+  box-shadow:0px 0px 10px 3px var(--buttonColor);
 }
+
+
 
 figcaption {
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  justify-content: flex-start;
+  margin-top: 5px;
+  max-width: 300px;
 }
 
 @keyframes animate {
@@ -105,6 +110,4 @@ figcaption {
     opacity: 1;
   }
 }
-
-
 
