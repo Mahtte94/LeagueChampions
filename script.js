@@ -32,22 +32,35 @@ const createChampionElement = (champion) => {
 
 const displayRandomChampion = () => {
   const container = document.getElementById("champion-container");
-  container.innerHTML = "";
+  const checkedInputs = document.querySelectorAll(
+    'input[type="checkbox"]:checked'
+  );
 
+  container.innerHTML = "";
   const championKeys = Object.keys(championsData.data);
   const randomKey =
     championKeys[Math.floor(Math.random() * championKeys.length)];
   const randomChampion = championsData.data[randomKey];
-
   const champion = createChampionElement(randomChampion);
   container.appendChild(champion);
+
+  const klo = Array.from(checkedInputs);
+  console.log(klo);
+
+  if (
+    checkedInputs.length === 0 ||
+    Array.from(checkedInputs).some((input) =>
+      randomChampion.tags.includes(input.name)
+    )
+  ) {
+  } else {
+    displayRandomChampion();
+  }
 };
-
-
 
 const displayAllClasses = () => {
   const classContainer = document.querySelector(".class-container");
-  const checkedInputs = document.querySelectorAll('input[type="checkbox"]:checked');
+
   const champs = Object.values(championsData.data);
 
   const uniqueTags = new Set();
