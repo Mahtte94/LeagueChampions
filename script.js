@@ -30,37 +30,46 @@ const createChampionElement = (champion) => {
   return figure;
 };
 
-const displayRandomChampion = () => {
+const displayRandomChampionByClass = () => {
   const container = document.getElementById("champion-container");
+  container.innerHTML = "";
   const checkedInputs = document.querySelectorAll(
     'input[type="checkbox"]:checked'
   );
 
+  const championKeys = Object.keys(championsData.data);
+
+  if (checkedInputs.length !== 0) {
+    const filteredChampions = championKeys.filter((key) =>
+      Array.from(checkedInputs).some((input) =>
+        championsData.data[key].tags.includes(input.name)
+      )
+    );
+    const randomKey =
+      filteredChampions[Math.floor(Math.random() * filteredChampions.length)];
+    const randomChampion = championsData.data[randomKey];
+    const champion = createChampionElement(randomChampion);
+    container.appendChild(champion);
+  } else {
+    displayRandomChampion();
+  }
+};
+
+const displayRandomChampion = () => {
+  const container = document.getElementById("champion-container");
   container.innerHTML = "";
+
   const championKeys = Object.keys(championsData.data);
   const randomKey =
     championKeys[Math.floor(Math.random() * championKeys.length)];
   const randomChampion = championsData.data[randomKey];
   const champion = createChampionElement(randomChampion);
   container.appendChild(champion);
-
-  const klo = Array.from(checkedInputs);
-  console.log(klo);
-
-  if (
-    checkedInputs.length === 0 ||
-    Array.from(checkedInputs).some((input) =>
-      randomChampion.tags.includes(input.name)
-    )
-  ) {
-  } else {
-    displayRandomChampion();
-  }
 };
 
 const displayAllClasses = () => {
   const classContainer = document.querySelector(".class-container");
-
+  classContainer.innerHTML = "";
   const champs = Object.values(championsData.data);
 
   const uniqueTags = new Set();
@@ -87,6 +96,6 @@ const displayAllClasses = () => {
 };
 
 const randomButton = document.getElementById("random-champion-btn");
-randomButton.addEventListener("click", displayRandomChampion);
+randomButton.addEventListener("click", displayRandomChampionByClass);
 
 fetchData();
