@@ -8,8 +8,8 @@
 }
 
 @font-face {
-  font-family: League;
-  src: url(../font/League.otf);
+  font-family: "League";
+  src: url(font/League.otf);
 }
 
 * {
