@@ -82,16 +82,21 @@ const displayAllClasses = () => {
   const uniqueTagsArrays = Array.from(uniqueTags);
 
   uniqueTagsArrays.forEach((array) => {
+    const singleClasses = document.createElement("div")
     const classes = document.createElement("input");
     const label = document.createElement("label");
+    singleClasses.classList.add("singleClasses");
     label.setAttribute("for", array);
     label.textContent = array;
     classes.type = "checkbox";
     classes.name = array;
     classes.id = array;
 
-    classContainer.appendChild(classes);
-    classContainer.appendChild(label);
+    
+    classContainer.appendChild(singleClasses);
+    singleClasses.appendChild(classes);
+    singleClasses.appendChild(label);
+    
   });
 };
 

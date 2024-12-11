@@ -2,6 +2,9 @@
   --textColor: #f0e6d2;
   --buttonColor: #c8aa6e;
   --buttonHoverColor: #d3bb8b;
+  --borderColor: #FFF;
+  --darkTextColor: #000;
+  --animationColor: #c8aa6e;
 }
 
 @font-face {
@@ -20,8 +23,8 @@ body {
   padding: 0;
   color: var(--textColor);
   height: 100vh;
+  min-height: 800px;
   width: 100vw;
-  overflow: hidden;
 }
 
 header {
@@ -34,7 +37,14 @@ header img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  min-height: 300px;
+}
+
+.btn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-top: 10px;
 }
 
 .random-champion-btn {
@@ -42,29 +52,29 @@ header img {
   justify-content: center;
   align-items: center;
   font-size: 1.125rem;
-  font-family: Spiegel, sans-serif;
   text-transform: uppercase;
-  color: black;
+  color: var(--darkTextColor);
   background-color: var(--buttonColor);
   width: 100%;
   max-width: 200px;
   height: 100%;
   max-height: 50px;
-  outline: rgb(255, 255, 255) solid 1px;
+  outline: var(--borderColor) solid 1px;
   outline-offset: 3px;
   font-weight: 400;
-  transition: color 0.25s ease-in-out, background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+  transition: color 0.25s ease-in-out, background-color 0.3s ease-in-out,
+    transform 0.1s ease-in-out;
   border: 0;
-  margin: 40px auto;
 }
 
 .random-champion-btn:active {
-  transform: scale(0.90);
+  transform: scale(0.9);
 }
 
 .random-champion-btn:hover {
   background-color: var(--buttonHoverColor);
   cursor: pointer;
+  color: var(--textColor);
 }
 
 .champion-container {
@@ -74,7 +84,6 @@ header img {
   width: 100%;
   height: 250px;
   margin: 0 auto;
- 
 }
 
 figure {
@@ -83,23 +92,8 @@ figure {
   height: 200px;
   margin: 0 auto;
   animation-name: animate;
-  animation-duration: 1s;
-}
-
-figure img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  box-shadow:0px 0px 10px 3px var(--buttonColor);
-}
-
-
-
-figcaption {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 5px;
-  max-width: 300px;
+  animation-duration: 2s;
+  
 }
 
 @keyframes animate {
@@ -111,4 +105,80 @@ figcaption {
     opacity: 1;
   }
 }
+
+figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: pulsate 8s ease-in-out infinite;
+
+}
+
+@keyframes pulsate {
+  0% {
+    box-shadow: 0px 0px 20px 3px var(--animationColor);
+  }
+
+  25% {
+    box-shadow: 0px 0px 35px 3px var(--animationColor);
+  }
+
+ 50% {
+    box-shadow: 0px 0px 20px 3px var(--animationColor);
+  }
+
+  75% {
+    box-shadow: 0px 0px 35px 3px var(--animationColor);
+  }
+
+  100% {
+    box-shadow: 0px 0px 20px 3px var(--animationColor);
+  }
+}
+
+figcaption {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  max-width: 300px;
+}
+
+.class-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.class-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 200px;
+  background-color: var(--buttonColor);
+  padding: 5px;
+  outline: var(--borderColor) solid 1px;
+  outline-offset: 3px;
+  gap: 5px;
+  line-height: 1.5rem;
+  max-height: 100px;
+  
+}
+
+.singleClasses {
+  font-size: 0.9rem;
+  color: var(--darkTextColor);
+}
+
+label:hover {
+  color: var(--textColor);
+  cursor: pointer;
+  transition: color 0.25s ease-in-out, background-color 0.3s ease-in-out,
+    transform 0.1s ease-in-out;
+}
+
+input {
+  margin:5px 3px 0 0;
+}
+
 
