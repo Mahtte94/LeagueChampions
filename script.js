@@ -11,6 +11,7 @@ const fetchData = async () => {
   }
 };
 
+/* Function for creating a champion element */
 const createChampionElement = (champion) => {
   const imgUrl = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${champion.image.full}`;
   const championName = champion.name;
@@ -30,6 +31,8 @@ const createChampionElement = (champion) => {
   return figure;
 };
 
+
+/* Function for displaying a random champion by class if a class is checked */
 const displayRandomChampionByClass = () => {
   const container = document.getElementById("champion-container");
   container.innerHTML = "";
@@ -55,6 +58,7 @@ const displayRandomChampionByClass = () => {
   }
 };
 
+/* Function for displaying a random champion when pressing the generate button */
 const displayRandomChampion = () => {
   const container = document.getElementById("champion-container");
   container.innerHTML = "";
@@ -67,6 +71,7 @@ const displayRandomChampion = () => {
   container.appendChild(champion);
 };
 
+/* Function for displaying all classes when loading the page */
 const displayAllClasses = () => {
   const classContainer = document.querySelector(".class-container");
   classContainer.innerHTML = "";
@@ -79,6 +84,7 @@ const displayAllClasses = () => {
     });
   });
 
+  /* Creates an array from uniqueTags*/
   const uniqueTagsArrays = Array.from(uniqueTags);
 
   uniqueTagsArrays.forEach((array) => {
