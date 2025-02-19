@@ -1,6 +1,6 @@
 # League of Legends Random Champion API
 
-This project provides a simple web application that allows users to randomize and retrieve information about League of Legends champions, either by specific class or from all available classes.
+This project provides a simple web application that allows users to randomize League of Legends champions, either by specific class or from all available classes.
 
 ## Features
 
